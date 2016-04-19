@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+<script type="text/javascript" src="js/jquery.arctext.js"></script>
+<script src="js/main.js"></script>
+<script>
+$(document).ready(function() {
+  $('#arc').arctext({radius:4000})
+  $('#fullpage').fullpage({
+    anchors: ['firstPage', 'secondPage', '3rdPage'],
+    navigation: true,
+    navigationPosition: 'right',
+    navigationTooltips: ['First page', 'Second page', 'Third and last page']
+  });
+  $('.titleBox').click(function(){
+    if($(this).parent().hasClass("show")){
+      $('.show').hide();
+      $(this).parent().children('.titleBox').hide();
+      $(this).parent().removeClass("show").addClass("fullscreen");
+      $('.fullscreen').fadeIn(1000, 'linear');
+      $(this).parent().children('.content').css("display", "block");
+      $('#header').hide();
+      $('#fp-nav').hide();
+      $.fn.fullpage.setAllowScrolling(false);
+    }
+  });
+$('.close').click(function(){
+    var selected = $(this).parent().parent();
+    selected.children('.content').css("display", "none");
+    selected.removeClass("fullscreen").addClass("show");
+    $('.show').hide();
+    $('.show').fadeIn(300, 'linear');
+    $('#header').show();
+    $('#fp-nav').show();
+    //$('.show').show();
+    selected.children('.titleBox').show();
+    $.fn.fullpage.setAllowScrolling(true);
+  });
+});
+</script>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="fullpage">
+
+      <div class="section" id = "landing">
+      <div class="layer">
+        <div class="welcome" id="arc">INFORMATION SCIENCES & TECHNOLOGIES @ RIT</div>
+        <div class="aboutContainer">
+          <div id="aboutTitle"><script>test('/about', 'title', '#aboutTitle');</script></div>
+          <hr>
+          <div id="aboutDescription"><script>test('/about', 'description', '#aboutDescription');</script></div>
+          <div id="aboutQuote"><script>test('/about', 'quote', '#aboutQuote');</script></div>
+          <div id="aboutAuthor"><script>test('/about', 'quoteAuthor', '#aboutAuthor');</script></div>
+        </div>
+      </div>
+
+      </div>
+      <div class="section">
+        <div class="main">
+          <section class="show" id="one">
+            <div class="titleBox">
+              <span class="title">Degrees</span>
+            </div>
+            <div class="content">
+              <script>degrees();</script>
+              <div class="degreeContainer">
+                <h2 class="degreeHeader">Our Undergraduate Degrees</h2>
+                <div id="undergraduate"></div>
+              </div>
+              <div class="degreeContainer">
+                <h2 class="degreeHeader">Our Graduate Degrees</h2>
+                <div id="graduate"></div>
+              </div>
+              <a href="#" class="close ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-b ui-btn-right">close</a>
+            </div>
+          </section>
+          <section class="show" id="two">
+            <div class="titleBox">
+            <span class="title">Minors</span>
+            </div>
+            <div class="content">
+              <script>minors();</script>
+              <div id="minors"></div>
+              <a href="#" class="close ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-b ui-btn-right">close</a>
+            </div>
+          </section>
+          <section class="show" id="three">
+            <div class="titleBox">
+            <span class="title">People</span>
+            </div>
+            <div class="content">
+              <script>people();</script>
+              <div id="people"></div>
+              <a href="#" class="close ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-b ui-btn-right">close</a>
+            </div>
+          </section>
+          <section class="show" id="four">
+            <div class="titleBox">
+            <span class="title">Resources</span>
+            </div>
+            <div class="content">
+              <div id="aboutDescription"><script>test('/about', 'description', '#aboutDescription');</script></div>
+              <div id="aboutQuote"><script>test('/about', 'quote', '#aboutQuote');</script></div>
+              <div id="aboutAuthor"><script>test('/about', 'quoteAuthor', '#aboutAuthor');</script></div>
+              <a href="#" class="close ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-b ui-btn-right">close</a>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="section">
+        <div class="main">
+          <section class="show" id="five">
+            <div class="titleBox">
+            <span class="title">Employment</span>
+            </div>
+            <div class="content">
+              some content
+              <a href="#" class="close ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-b ui-btn-right">close</a>
+            </div>
+          </section>
+          <section class="show" id="six">
+            <div class="titleBox">
+            <span class="title">Research</span>
+            </div>
+            <div class="content">
+              some content
+              <a href="#" class="close ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-b ui-btn-right">close</a>
+            </div>
+          </section>
+          <section class="show" id="seven">
+            <div class="titleBox">
+            <span class="title">Degrees</span>
+            </div>
+            <div class="content">
+              some content
+              <a href="#" class="close ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-b ui-btn-right">close</a>
+            </div>
+          </section>
+          <section class="show" id="eight">
+            <div class="titleBox">
+            <span class="title">Contact</span>
+            </div>
+            <div class="content">
+              <div id="formContainer">
+              	<h2 class="title-item">Contact Us</h2>
+              	<br>
+              	<div class="alert alert-success" id="contactSuccess" style="display:none"><strong>Success!</strong><span id="contactSuccessFeedback"></span></div>
+              	<div class="alert alert-warning"  style="display:none" id="contactFailure">
+              		<strong>Warning! </strong> <span id="contactFailureFeedback" style=""></span>
+              	</div>
+              	<div id="contactForm">
+              	<p>Questions? Comments? We want to hear from you.</p>
+              	<form class="form-horizontal" action="" method="post" onsubmit="return false;" id="contactForm">
+              		<fieldset>
+              			<div class="control-group">
+              				<label class="control-label" for="input01">Your Name</label>
+              				<div class="controls">
+              					<input type="text" class="input-xlarge" id="input01" name="name" value="" />
+              					<p class="help-block">Name, email and message are required.</p>
+              				</div>
+              			</div>
+              			<div class="control-group">
+              				<label class="control-label" for="input03">Your E-mail</label>
+              				<div class="controls">
+              					<input type="text" class="input-xlarge" id="input03" name="email" value="" />
+              				</div>
+              			</div>
+              			<div class="control-group" id="phoneGroup">
+              				<label class="control-label">Your Phone</label>
+              				<div class="controls" id="phone">
+              					<input type="text" maxlength="3" class="input-mini" name="phone1" placeholder="XXX"  value="" /> -
+              					<input type="text" maxlength="3" class="input-mini" name="phone2" placeholder="XXX"  value="" /> -
+              					<input type="text" maxlength="4" class="input-small" name="phone3" placeholder="XXXX"  value="" />
+              					<script type="text/javascript">
+              						// JavaScript to make it more user-friendly when entering a phone number.
+              						$('[name="phone[]"]').keypress(function(evt) {
+              							var code = evt.keyCode || evt.which;
+              							if(code >= 48 && code <= 57) {
+              								var $this=$(this);
+              								if($this.val().length+1 >= $this.attr('maxlength')) {
+              									$(':input:eq('+($(':input').index(this)+1)+')').focus();
+              								}
+              							}
+              						});
+              					</script>
+              				</div>
+              			</div>
+              			<div class="control-group">
+              				<label class="control-label" for="message">Your Message</label>
+              				<div class="controls">
+              					<textarea class="input-xlarge" id="contactMessage" name="message" placeholder="Put your question or comment in here" style="width:100%;height:100px"></textarea>
+              				</div>
+              			</div>
+              			<div class="form-actions">
+              				<button type="submit" class="btn btn-info" onclick="sendForm()">Send it!</button>
+              				<input type="reset" class="btn" value="Reset"/>
+              			</div>
+              		</fieldset>
+              	</form>
+              	</div>
+              </div>
+              <a href="#" class="close ui-nodisc-icon ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-b ui-btn-right">close</a>
+            </div>
+          </section>
+        </div>
+      </div>
+  </div>
+
+</body>
+</html>
